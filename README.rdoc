@@ -35,6 +35,11 @@ Extend your object with this module to add the MethodChain#chain_method method
 * One file implementation, easy to put in your project
 * Lots of meta-guru magic
 
+== Project infos
+
+Homepage:: http://github.com/zimbatm/methodchain
+Licence:: public domain
+
 == Stability & bug report
 
 The current version has 100% test coverage. However, it was not used in
