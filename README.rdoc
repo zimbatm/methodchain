@@ -1,0 +1,40 @@
+= MethodChain
+
+MethodChain#chain_method is a replacement of alias_method_chain
+
+Instead of aliasing the method, it moves the original method in a module
+and includes it in the class. That way, you can still use the super keyworkd.
+
+If you look at your class ancestors, you can see the #<Backup:...>
+instance with the method name, the reason if it was given and where it
+was called. That way, it is easy to keep track at runtime what methods
+where replaced and where.
+
+Extend your object with this module to add the MethodChain#chain_method method 
+(see method definition for more doc)
+
+== Usage
+  
+  :include:example/usage.rb
+
+== Features
+
+* 100% test coverage
+* One file implementation, easy to put in your project
+* Lots of meta-guru magic
+
+== Stability & bug report
+
+The current version has 100% test coverage. However, it was not used in
+lots of real-world projects. If you find an error, report to 
+http://github.com/zimbatm/methodchain
+
+== Ruby 1.9 notes
+
+This current implementation does not work with ruby 1.9 because define_method
+now uses Method#bind, which does not allow binding to other classes.
+
+Next version will probably implement a bouncer module to intercept super calls
+and bind the methods to the current class. That way, it should work in ruby1.9
+without hacking the internals. It should also allow re-ordering the call order.
+
